@@ -1,0 +1,13 @@
+#header{
+    font-size: 32px;
+    font-style: italic;
+    /* margin: 5px; */
+    border: 1px solid #000;
+    border-radius: 15px;
+    box-shadow: 1px 1px;
+}
+.header{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,11 @@
+
+#navbar ul{
+    list-style: none;
+    display: flex;
+}
+#navbar button{
+    background: none;
+    border: 0px;
+    font-weight: 500;
+    margin: 5px;
+}
