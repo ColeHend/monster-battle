@@ -7,7 +7,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-.monHead{
+#monHead{
     font-size: 18px;
     font-weight: 600;
     font-style: italic;
@@ -16,12 +16,19 @@
     margin-left: auto;
     margin-right: auto;
 }
+.monster div{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
 .submit{
     margin: 5px;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
+
 /* .monTitle{
     margin: 15px;
 } */

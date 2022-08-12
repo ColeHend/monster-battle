@@ -7,6 +7,7 @@ import Home from "./home/home";
 import Monsters from "./monsters/monsters";
 import Moves from "./moves/moves";
 import Battles from "./battles/battles";
+import LoginBar from "./loginbar/loginbar";
 const UserContext = createContext();
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <UserContext.Provider value={{ userInfo, setUserInfo }}>
         <div id="header">
           <Header />
-          <Navbar />
+          {userInfo.loggedIn ? <Navbar /> : <LoginBar />}
         </div>
         <div id="main">
           <Routes>

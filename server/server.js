@@ -2,15 +2,17 @@ const express = require("express");
 const cors = require("cors");
 const PORT = process.env.PORT || 4000;
 const app = express();
-const { database } = require("./database");
-const { addMonster } = require("./controllers/putControl");
+const dbConnect = require("./database/database");
+const { Register, Login, addMonster } = require("./controllers/putControl");
+const auth = require("./database/auth");
 app.use(express.json());
 app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
-  database.connect(() => {
-    console.log("Connected to database!");
-    app.post("/api/addMonster", addMonster);
-  });
+  dbConnect();
+  // database needing
+  app.put("/api/register", Register);
+  app.put("/api/login", Login);
+  app.post("/api/addMonster", auth, addMonster);
 });
