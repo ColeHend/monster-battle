@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFormik } from "formik";
+import axios from "axios";
 import "./monsters.css";
+const url = "http://localhost:4000";
 function Monsters() {
-  let [monName, setMonName] = useState("");
-  let [monAtk, setMonAtk] = useState(10);
-  let [monDef, setMonDef] = useState(10);
-  let [monSPAtk, setMonSPAtk] = useState(10);
-  let [monSPDef, setMonSPDef] = useState(10);
-  let [speed, setMonSpeed] = useState(10);
-  let monster = {
-    monName,
-    monAtk,
-    monDef,
-    monSPAtk,
-    monSPDef,
-    speed,
+  let initialValues = {
+    monName: "",
+    monAtk: 10,
+    monDef: 10,
+    monSPAtk: 10,
+    monSPDef: 10,
+    speed: 10,
   };
-  console.log(`monster: ${JSON.stringify(monster)}`);
+  const onSubmit = (values) => {
+    axios.post(url + "/api/addMonsters", values).then((res) => {});
+  };
+  const validate = (props) => {};
+  console.log(`monster: ${JSON.stringify(initialValues)}`);
+  const formik = useFormik({ initialValues, onSubmit, validate });
   return (
     <div id="monster">
+      <form
+        action="/api/addMonster"
+        method="post"
+        onSubmit={formik.handleSubmit}
+      ></form>
       <div className="monHead">Monster Creator</div>
       <div className="monTitle">
         <label htmlFor="monName">Name: </label>
         <input
           type="text"
-          onChange={(e) => setMonName(e.target.value)}
-          value={monster.monName}
+          onChange={formik.handleChange}
+          value={formik.values.monName}
           name="monName"
           id="monName"
         />
@@ -32,8 +39,8 @@ function Monsters() {
       <div className="speed">
         <label htmlFor="speed">Speed: </label>
         <input
-          value={monster.speed}
-          onChange={(e) => setMonSpeed(Number(e.target.value))}
+          value={formik.values.speed}
+          onChange={formik.handleChange}
           type="text"
           name="monSpeed"
           id="monSpeed"
@@ -43,8 +50,8 @@ function Monsters() {
         <div className="monAtk">
           <label htmlFor="monAtk">Attack: </label>
           <input
-            value={monster.monAtk}
-            onChange={(e) => setMonAtk(Number(e.target.value))}
+            value={formik.values.monAtk}
+            onChange={formik.handleChange}
             type="text"
             name="monAtk"
             id="monAtk"
@@ -53,8 +60,8 @@ function Monsters() {
         <div className="monDef">
           <label htmlFor="monDef">Defense: </label>
           <input
-            value={monster.monDef}
-            onChange={(e) => setMonDef(Number(e.target.value))}
+            value={formik.values.monDef}
+            onChange={formik.handleChange}
             type="text"
             name="monDef"
             id="monDef"
@@ -63,8 +70,8 @@ function Monsters() {
         <div className="monSPAtk">
           <label htmlFor="monSPAtk">Special Attack: </label>
           <input
-            value={monster.monSPAtk}
-            onChange={(e) => setMonSPAtk(Number(e.target.value))}
+            value={formik.values.monSPAtk}
+            onChange={formik.handleChange}
             type="text"
             name="monSPAtk"
             id="monSPAtk"
@@ -73,8 +80,8 @@ function Monsters() {
         <div className="monSPDef">
           <label htmlFor="monSPDef">Special Defense: </label>
           <input
-            value={monster.monSPDef}
-            onChange={(e) => setMonSPDef(Number(e.target.value))}
+            value={formik.values.monSPDef}
+            onChange={formik.handleChange}
             type="text"
             name="monSPDef"
             id="monSPDef"
