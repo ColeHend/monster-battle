@@ -1,0 +1,27 @@
+#monster{
+    width: fit-content;
+    margin: 5px;
+    padding: 15px;
+    border: 1px solid #000;
+    box-shadow: 1px 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.monHead{
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    width: fit-content;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.submit{
+    margin: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* .monTitle{
+    margin: 15px;
+} */

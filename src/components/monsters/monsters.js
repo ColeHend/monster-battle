@@ -18,6 +18,7 @@ function Monsters() {
   console.log(`monster: ${JSON.stringify(monster)}`);
   return (
     <div id="monster">
+      <div className="monHead">Monster Creator</div>
       <div className="monTitle">
         <label htmlFor="monName">Name: </label>
         <input
@@ -78,6 +79,9 @@ function Monsters() {
             name="monSPDef"
             id="monSPDef"
           />
+        </div>
+        <div className="submit">
+          <button type="submit">Create!</button>
         </div>
       </div>
     </div>
