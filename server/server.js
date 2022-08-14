@@ -12,7 +12,7 @@ app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
   dbConnect();
   // database needing
-  app.put("/api/register", Register);
-  app.put("/api/login", Login);
+  app.post("/api/register", Register);
+  app.post("/api/login", Login);
   app.post("/api/addMonster", auth, addMonster);
 });

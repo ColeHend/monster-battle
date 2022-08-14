@@ -8,7 +8,7 @@ import Monsters from "./monsters/monsters";
 import Moves from "./moves/moves";
 import Battles from "./battles/battles";
 import LoginBar from "./loginbar/loginbar";
-const UserContext = createContext();
+const UserContext = createContext({});
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
@@ -17,7 +17,7 @@ function App() {
       <UserContext.Provider value={{ userInfo, setUserInfo }}>
         <div id="header">
           <Header />
-          {userInfo.loggedIn ? <Navbar /> : <LoginBar />}
+          {window.localStorage.getItem("userInfo") ? <Navbar /> : <LoginBar />}
         </div>
         <div id="main">
           <Routes>
@@ -32,4 +32,5 @@ function App() {
   );
 }
 
+export { UserContext };
 export default App;

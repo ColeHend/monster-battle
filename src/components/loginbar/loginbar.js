@@ -2,7 +2,7 @@ import React from "react";
 import "./loginbar.css";
 import Login from "./login";
 import Register from "./register";
-function LoginBar() {
+function LoginBar(props) {
   return (
     <div id="loginbar">
       <ul>
